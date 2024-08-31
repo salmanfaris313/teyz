@@ -7,13 +7,34 @@ import React, { useState } from "react";
 
 
 function Dashboard() {
-  const [createLinkBox, SetcreateLinkBox] = useState([''])
+  const [createLinkBox, SetcreateLinkBox] = useState([])  
+
+ function removeLinkBox(deleteindex){
+  const newLinkBox=[]
+
+  createLinkBox.forEach((item,index) => {
+
+    if(deleteindex != index ) {
+      newLinkBox.push(item)
+    }
+
+  })
+
+  SetcreateLinkBox(newLinkBox)
+
+  }
+
 
   return (
     <div className="flex w-full">
       <div className="mb-5 w-3/4 mr-5">
-        <AddLink  createLinkBox={createLinkBox} SetcreateLinkBox={SetcreateLinkBox}  />
-        <LinkBox createLinkBox={createLinkBox} />
+        <AddLink  createLinkBox={createLinkBox}  SetcreateLinkBox={SetcreateLinkBox}  />
+       {createLinkBox.map((item, index) =>{
+        return(
+          <LinkBox removeLinkBox={removeLinkBox} index={index}  linkData={item} />
+        )
+       
+       })} 
       </div>
       <div className="mb-5 w-2/4 px-16">
         <MobileScreen  />

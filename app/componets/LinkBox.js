@@ -40,9 +40,9 @@ function LinkBox(props) {
 
   return (
     <div>
-      {props.createLinkBox.map((items, index) => {
-        return (
-          <div key={index} className="bg-white p-6 w-[100%] flex flex-col rounded-2xl mt-8">
+     
+       
+          <div  className="bg-white p-6 w-[100%] flex flex-col rounded-2xl mt-8">
             <input
               type="text"
               className="bg-gray-50 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
@@ -59,7 +59,7 @@ function LinkBox(props) {
               {LinkIcons.map((item, index) => {
                 return (
                   <div
-                    key={index}
+                    
                     className="shadow-xl p-2 rounded-md flex mr-5 "
                     data-tooltip-target="tooltip-default"
                   >
@@ -76,7 +76,7 @@ function LinkBox(props) {
               </label>
               <TrashIcon
                 className="w-4 h-4 cursor-pointer hover:text-red-400 mt-2  ml-5"
-                onClick={() => SetDeleteComponent(false)}
+                onClick={() => props.removeLinkBox(props.index)}
               />
             </div>
 
@@ -95,8 +95,8 @@ function LinkBox(props) {
               SetDeleteComponent={SetDeleteComponent}
             />
           </div>
-        );
-      })}
+       
+    
     </div>
   );
 }

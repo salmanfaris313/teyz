@@ -10,7 +10,7 @@ function AddLink(props) {
   function AddBox() {
     const AddDiv = [
       {
-        id: props.createLinkBox,
+        id: 1,
       },
     ];
 
